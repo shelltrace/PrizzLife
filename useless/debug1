@@ -1,0 +1,6 @@
+local times = tick() + 50
+repeat task.wait()
+  settings():GetService("NetworkSettings").IncomingReplicationLag = 69999
+	wait()
+	settings():GetService("NetworkSettings").IncomingReplicationLag = 69
+until tick() - times >=0
