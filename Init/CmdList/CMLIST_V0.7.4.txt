@@ -7,7 +7,7 @@ Added new command: spin [speed]
 Added new command: orbit [plr] [speed] [radius]  (Wow what a totally useful command!)
 ]]--
 --Yes, i seperated "States" and "Toggles" 
-local ne, notify, NewToggleList, Settings, Saved, States, Toggles = ...
+local ne, Notif, NewToggleList, Settings, Saved, States, Toggles = ...
 ne("TIP:", "If you accidentally lose the gui, type /revert in chat", false)
 ne("prefix [Prefix]", "Changes prefix (Default prefix is: ?)", false) --V
 ne("KILL CMDS", false, true) --KILL CMDS
@@ -416,4 +416,4 @@ NewToggleList("RankedSetting_GiveCmds", "Allow/Disallow ranked players to give o
 	Settings.Ranked.GiveCmds = not Settings.Ranked.GiveCmds
 	return Settings.Ranked.GiveCmds
 end)
-notify("Cheats Ampota", "Potang ina mo", 4)
+Notif("Cheats Ampota", "Potang ina mo", 4)
