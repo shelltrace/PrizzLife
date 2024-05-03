@@ -15,4 +15,4 @@ PLadmin_Settings = {
   RankedNukeCmds = true; --Allow ranked players to use nuke commands (Very annoying)
   Force_isMobile = false; --use if you are in mobile and the script still thinks you are on a PC
 }
-loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/c77fef269368e81b94a63b0036771079/raw/c43107a1b491d1a32e077d9122f70a2235d77b9e/main'))()
+loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/c77fef269368e81b94a63b0036771079/raw/501fe57108839a0a5bcdf92c8077e2a8d31521d9/main'))()
