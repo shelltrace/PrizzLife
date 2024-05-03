@@ -2,8 +2,8 @@ PLadmin_Settings = {
   JoinNotify = false; --Notify when a player joins
   AutoRespawn = true; --Automatically loadcharacter when dying
   AntiVoid = true; --Automatically teleport up when falling into void
-  AntiTase = false; --Prevents you from being tased (Doesnt crash libhydrogen executors because getconnections is absolute dogshit)
-  AntiArrest = false; --Prevents you from being arrested (Doesnt crash libhydrogen executors because getconnections is absolute dogshit)
+  AntiTase = false; --Prevents you from being tased (getconnections is absolute dogshit)
+  AntiArrest = false; --Prevents you from being arrested (getconnections is absolute dogshit)
   AntiShoot = false; --Kills player who tries to shoot you (Will be delayed if you have shitty ping, *COUGH* PLDT Users)
   AntiPunch = false; --Instantly kill players who try to punch you
   AntiFling = false; --Prevent exploiters from flinging you
@@ -15,4 +15,4 @@ PLadmin_Settings = {
   RankedNukeCmds = true; --Allow ranked players to use nuke commands (Very annoying)
   Force_isMobile = false; --use if you are in mobile and the script still thinks you are on a PC
 }
-loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/c77fef269368e81b94a63b0036771079/raw/501fe57108839a0a5bcdf92c8077e2a8d31521d9/main'))()
+loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/c77fef269368e81b94a63b0036771079/raw/5f79133b263caab3c1e0c8633ac74ea46bfcd7e3/main'))()
