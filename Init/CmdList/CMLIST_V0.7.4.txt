@@ -416,4 +416,6 @@ NewToggleList("RankedSetting_GiveCmds", "Allow/Disallow ranked players to give o
 	Settings.Ranked.GiveCmds = not Settings.Ranked.GiveCmds
 	return Settings.Ranked.GiveCmds
 end)
-Notif("Cheats Ampota", "Potang ina mo", 4)
+task.delay(1, function()
+       Notif("Cheats Ampota", "Potang ina mo", 4)
+end)
