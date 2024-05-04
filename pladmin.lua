@@ -1,9 +1,10 @@
+ScriptExecution_Runtime = tick()
 PLadmin_Settings = {
   JoinNotify = false; --Notify when a player joins
   AutoRespawn = true; --Automatically loadcharacter when dying
   AntiVoid = true; --Automatically teleport up when falling into void
-  AntiTase = false; --Prevents you from being tased (getconnections is absolute dogshit)
-  AntiArrest = false; --Prevents you from being arrested (getconnections is absolute dogshit)
+  AntiTase = false; --Prevents you from being tased (getconnections is absolute garbage)
+  AntiArrest = false; --Prevents you from being arrested (getconnections is absolute garbage)
   AntiShoot = false; --Kills player who tries to shoot you (Will be delayed if you have shitty ping, *COUGH* PLDT Users)
   AntiPunch = false; --Instantly kill players who try to punch you
   AntiFling = false; --Prevent exploiters from flinging you
