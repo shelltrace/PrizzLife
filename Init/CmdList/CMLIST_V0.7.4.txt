@@ -324,7 +324,7 @@ NewToggleList("UserSettings_OldItemMethod", "Toggles wether to use teleport to g
 	return Settings.User.OldItemMethod
 end)
 NewToggleList("UserSettings_AutoDumpCars", "Automatically dump cars when bringing", Settings.User.AutoDumpCar, function()
-	Settings.User.AutoDumpCar = not Settings.User.AutoDumpcar
+	Settings.User.AutoDumpCar = not Settings.User.AutoDumpCar
 	Notif("Changed", "OK, Toggled dumping cars to " .. tostring(Settings.User.AutoDumpCar) .. ".")
 	return Settings.User.AutoDumpCar
 end)
