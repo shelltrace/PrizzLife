@@ -1,4 +1,4 @@
-ScriptExecution_Runtime = tick()
+Execution_Runtime = tick()
 PLadmin_Settings = {
   JoinNotify = false; --Notify when a player joins
   AutoRespawn = true; --Automatically loadcharacter when dying
