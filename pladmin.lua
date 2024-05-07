@@ -14,6 +14,9 @@ PLadmin_Settings = {
   OldItemMethod = false; --Use teleport for getting items (Only use when prison life patches the position table method)
   WhitelistRanked = false; --Automatically whitelist ranked players (DO NOT USE WHEN RANKING ALL PLAYERS)
   RankedNukeCmds = true; --Allow ranked players to use nuke commands (Very annoying)
-  Force_isMobile = false; --use if you are in mobile and the script still thinks you are on a PC
+  RankedMultiCmd = true; --Allow ranked players to use the arguments: "all, and team", EX: ?kill all
+  RankedOutput = true; --Chat the output commands of ranked players
+  WhisperToRanked = true; --Use whisper for outputing commands for ranked players
+  Force_isMobile = false; --use if you are in mobile and the script detects a mouse input, which is probably due to a shitty executor UI
 }
 loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/c77fef269368e81b94a63b0036771079/raw/5f79133b263caab3c1e0c8633ac74ea46bfcd7e3/main'))()
