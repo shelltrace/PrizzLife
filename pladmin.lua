@@ -19,4 +19,4 @@ PLadmin_Settings = {
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
   Force_isMobile = false; --use if you are in mobile and the script detects a mouse input, which is probably due to a shitty executor UI
 }
-loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/c77fef269368e81b94a63b0036771079/raw/5f79133b263caab3c1e0c8633ac74ea46bfcd7e3/main'))()
+loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/9789d491c4db0a322a3bf41381f571bf/raw/d1d01a8ef8b48c981d5585968f912c7f65c47c0f/mainscript_v0.7.5_Public'))()
