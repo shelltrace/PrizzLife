@@ -13,6 +13,7 @@ Added new command: spin [speed]
 Added new command: orbit [plr] [speed] [radius]  (Wow what a totally useful command!)
 
 ]]--
+wait()
 --Yes, i seperated "States" and "Toggles" 
 local ne, Notif, NewToggleList, Settings, Saved, States, Toggles = ...
 ne("TIP:", "If you accidentally lose the gui, type /revert in chat", false)
