@@ -21,5 +21,5 @@ PLadmin_Settings = {
 };
 do
     local InaMo = _ENV or getfenv();local Prizz = {Life = InaMo["loadstring"]}
-    Prizz.Life(game:HttpGet('https://gist.githubusercontent.com/elliexmln/a8502e85228ba754bd957be6d31f1e0a/raw/a5cd879ea453d8e7bfe2e7e335dde147805f8fa7/update_v0.7.6'))()
+    Prizz.Life(game:HttpGet('https://gist.githubusercontent.com/elliexmln/ecdcfa3eb3b7c90ef882585b7051315f/raw'))()
 end
