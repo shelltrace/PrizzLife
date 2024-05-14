@@ -1,4 +1,4 @@
---[[ 
+--[[ NOTICE!!! This version is now deprecated.
 | Changelogs: 5/6/2024 (0.7.5), UTC+8
 Major bug fix (Misspelled variables :/ bruh omfg)
 Added new command: ?esp [boolean]
