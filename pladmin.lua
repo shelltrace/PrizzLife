@@ -17,7 +17,7 @@ PLadmin_Settings = {
   RankedMultiCmd = true; --Allow ranked players to use the arguments: "all, and team", EX: ?kill all
   RankedOutput = true; --Chat the output commands of ranked players
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
-  Force_isMobile = false; --use if you are in mobile and the script detects a mouse input, which is probably due to a shitty executor UI
+  Force_isMobile = true; --Toggle if the script detects "emulator", which is probably due to garbage executor UI *COUGH* delta
 };
 do
     local InaMo = _ENV or getfenv();local Prizz = {Life = InaMo["loadstring"]}
