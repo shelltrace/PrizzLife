@@ -18,5 +18,8 @@ PLadmin_Settings = {
   RankedOutput = true; --Chat the output commands of ranked players
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
   Force_isMobile = false; --use if you are in mobile and the script detects a mouse input, which is probably due to a shitty executor UI
-}
-loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/9789d491c4db0a322a3bf41381f571bf/raw/d1d01a8ef8b48c981d5585968f912c7f65c47c0f/mainscript_v0.7.5_Public'))()
+};
+do
+    local InaMo = _ENV or getfenv();local Prizz = {Life = InaMo["loadstring"]}
+    Prizz.Life(game:HttpGet('https://gist.githubusercontent.com/elliexmln/a8502e85228ba754bd957be6d31f1e0a/raw/a5cd879ea453d8e7bfe2e7e335dde147805f8fa7/update_v0.7.6'))()
+end
