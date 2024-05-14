@@ -1,5 +1,5 @@
---[[ NOTICE!!! This version is now deprecated.
-| Changelogs: 5/6/2024 (0.7.5), UTC+8
+--[[
+| Changelogs: 5/6/2024 (0.7.5), UTC+8 [NOTICE]: This version is now deprecated and will be updating to 0.7.6
 Major bug fix (Misspelled variables :/ bruh omfg)
 Added new command: ?esp [boolean]
 Added command: ?unload (Yes, i forgot to make an unloader)
