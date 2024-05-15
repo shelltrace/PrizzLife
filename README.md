@@ -1,4 +1,7 @@
-## Roblox Prison Life Script, Still in Beta and contains bug(s). (Designed for mobile, Doesnt work in some PC executors)
+## PrizzLife (PLadmin)
+Roblox Prison Life Script, Designed for mobile (May not work on PC executors)
+
+## Loadstring:
 ```
 loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/pladmin.lua'))()
 ```
