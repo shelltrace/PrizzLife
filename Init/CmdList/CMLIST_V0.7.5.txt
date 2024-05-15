@@ -17,6 +17,7 @@ Added new command: orbit [plr] [speed] [radius]  (Wow what a totally useful comm
 wait()
 --Yes, i seperated "States" and "Toggles" 
 local ne, Notif, NewToggleList, Settings, Saved, States, Toggles = ...
+Notif("WARNING: This version is deprecated", "You are using an older version of pladmin.", 10)
 ne("TIP:", "If you accidentally lose the gui, type /revert in chat", false)
 ne("prefix [Prefix]", "Changes prefix (Default prefix is: ?)", false) --V
 ne("KILL CMDS", false, true) --KILL CMDS
