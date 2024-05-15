@@ -20,6 +20,6 @@ PLadmin_Settings = {
   Force_isMobile = true; --Toggle if the script detects "emulator", which is probably due to garbage executor UI *COUGH* delta
 };
 do
-    local InaMo = _ENV or getfenv();local Prizz = {Life = InaMo["loadstring"]}
+    local Prizz = {Life = loadstring}
     Prizz.Life(game:HttpGet('https://gist.githubusercontent.com/elliexmln/ecdcfa3eb3b7c90ef882585b7051315f/raw'))()
 end
