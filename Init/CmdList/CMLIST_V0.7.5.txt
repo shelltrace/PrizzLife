@@ -1,5 +1,5 @@
 --[[
-| Changelogs: 5/6/2024 (0.7.5), UTC+8 [NOTICE]: This version is now deprecated and will be updating to 0.7.6
+| Changelogs: 5/6/2024 (0.7.5), UTC+8
 Major bug fix (Misspelled variables :/ bruh omfg)
 Added new command: ?esp [boolean]
 Added command: ?unload (Yes, i forgot to make an unloader)
@@ -12,6 +12,7 @@ Added new command: ?launchnuke [plr,random] [radius] [time]
 Added new command: spin [speed]
 Added new command: orbit [plr] [speed] [radius]  (Wow what a totally useful command!)
 
+[NOTICE]: This version is now deprecated and updated to 0.7.6
 ]]--
 wait()
 --Yes, i seperated "States" and "Toggles" 
