@@ -3,8 +3,8 @@ PLadmin_Settings = {
   JoinNotify = false; --Notify when a player joins
   AutoRespawn = true; --Automatically loadcharacter when dying
   AntiVoid = true; --Automatically teleport up when falling into void
-  AntiTase = false; --Prevents you from being tased (getconnections is absolute garbage)
-  AntiArrest = false; --Prevents you from being arrested (getconnections is absolute garbage)
+  AntiTase = false; --Prevents you from being tased (100% no getconnections used because its absolute garbage)
+  AntiArrest = false; --Prevents you from being arrested (100% no getconnections used because its absolute garbage)
   AntiShoot = false; --Kills player who tries to shoot you (Will be delayed if you have shitty ping, *COUGH* PLDT Users)
   AntiPunch = false; --Instantly kill players who try to punch you
   AntiFling = false; --Prevent exploiters from flinging you
@@ -20,6 +20,6 @@ PLadmin_Settings = {
   Force_isMobile = true; --Toggle if the script detects "emulator", which is probably due to garbage executor UI *COUGH* delta
 };
 do
-    local Prizz = {Life = loadstring}
+    local Prizz={Life=loadstring}
     Prizz.Life(game:HttpGet('https://gist.githubusercontent.com/elliexmln/ecdcfa3eb3b7c90ef882585b7051315f/raw'))()
 end
