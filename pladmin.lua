@@ -17,7 +17,7 @@ PLadmin_Settings = {
   RankedMultiCmd = true; --Allow ranked players to use the arguments: "all, and team", EX: ?kill all
   RankedOutput = true; --Chat the output commands of ranked players
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
-  Force_isMobile = true; --Toggle if the script detects "emulator", which is probably due to garbage executor UI *COUGH* delta
+  Force_isMobile = false; --Force mobile action gui (Punch and crawl buttons) if executor UI is too shitty and detected as "emulator"
 };
 do
     local Prizz={Life=loadstring}
