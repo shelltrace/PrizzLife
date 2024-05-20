@@ -24,5 +24,5 @@ PLadmin_Settings = {
 };
 do
     local Prizz={Life=loadstring}
-    Prizz.Life(game:HttpGet('https://gist.githubusercontent.com/elliexmln/ecdcfa3eb3b7c90ef882585b7051315f/raw'))()
+    Prizz.Life(game:HttpGet(("https://gist.githubusercontent.com/elliexmln/9ffce8ecc7fdc239432125eb4c3df94c/raw"),true))()
 end
