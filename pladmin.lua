@@ -22,24 +22,4 @@ PLadmin_Settings = {
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
   Force_isMobile = false; --Force mobile action gui (Punch and crawl buttons) if executor is too shitty and detected as "emulator"
 };
-
-
-
-
-
-
-
-
----hyuweruii8333r343423424234242424
-
-
-
-
-
-
-
-
-
-
---rh3ww3rkwkeucrcue87etycu7eyt87eny5873t8734t58734y86v3ny8t FUDCKING GGITHBUUB WTAIKING 50a9428327382 YEARS HTJU&ST TO FUCKJUIGHNG UPDAOTWE
 loadstring(game:HttpGet("https://gist.githubusercontent.com/elliexmln/9ffce8ecc7fdc239432125eb4c3df94c/raw"))()
