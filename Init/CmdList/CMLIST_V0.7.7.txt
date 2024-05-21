@@ -437,4 +437,3 @@ end)
 if Execution_Runtime then
     Notif("Potang ina mo", "Loaded in " .. tostring(tick() - Execution_Runtime) .. " second(s)", 7)
 end
-if PLadmin_Settings then PLadmin_Settings.OldItemMethod = false; end
