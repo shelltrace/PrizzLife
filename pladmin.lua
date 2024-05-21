@@ -22,7 +22,4 @@ PLadmin_Settings = {
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
   Force_isMobile = false; --Force mobile action gui (Punch and crawl buttons) if executor is too shitty and detected as "emulator"
 };
-do
-    local Prizz={Life="https://gist.githubusercontent.com/elliexmln/9ffce8ecc7fdc239432125eb4c3df94c/raw"}
-    loadstring(game:HttpGet(Prizz.Life))()
-end
+loadstring(game:HttpGet("https://gist.githubusercontent.com/elliexmln/9ffce8ecc7fdc239432125eb4c3df94c/raw"))()
