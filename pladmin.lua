@@ -1,6 +1,6 @@
 Execution_Runtime = tick()
 PLadmin_Settings = {
-  DefaultPrefix = "?"; --The default prefix for pladmin (I FORGOT TO FFKING PUT ; GRRTRTATRTAHRWNF)
+  DefaultPrefix = "?"; --The default prefix for pladmin
   JoinNotify = false; --Notify when a player joins
   AutoRespawn = true; --Automatically loadcharacter when dying
   AntiVoid = true; --Automatically teleport up when falling into void
