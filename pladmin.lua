@@ -26,3 +26,4 @@ do
     local Prizz={Life=loadstring}
     Prizz.Life(game:HttpGet('https://gist.githubusercontent.com/elliexmln/ecdcfa3eb3b7c90ef882585b7051315f/raw'))()
 end
+print("OMFG WHY TF IS GITHUB TAKING YEARS TO UPDATE THE GOD FUCKIGN DAMN LOADSTRING")
