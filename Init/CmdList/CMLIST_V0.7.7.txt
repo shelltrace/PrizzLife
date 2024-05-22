@@ -436,5 +436,5 @@ NewToggleList("RankedSetting_GiveCmds", "Allow/Disallow ranked players to give o
 	return Settings.Ranked.GiveCmds
 end)
 if Execution_Runtime then
-    Notif("Potang ina mo", "Loaded in " .. tostring(tick() - Execution_Runtime) .. " second(s)", 7)
+    Notif("Potang ina mo", "Loaded in " .. tostring(tick() - Execution_Runtime) .. " second(s). github.com/elliexmln/PrizzLife", 7)
 end
