@@ -1,5 +1,5 @@
 ## PrizzLife (PLadmin)
-Roblox Prison Life Script, Designed for mobile (May not work on PC executors, especially the shitty executor called Solara)
+Roblox Prison Life Script, Designed for mobile (May not work on PC executors, especially the shitty executor called Solara, Please use an emulator instead.)
 
 ## Loadstring:
 ```
