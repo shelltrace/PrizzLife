@@ -21,5 +21,5 @@ PLadmin_Settings = {
   RankedOutput = true; --Chat the output commands of ranked players
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
   Force_isMobile = false; --Force mobile action gui (Punch and crawl buttons) if executor is too shitty and detected as "emulator"
-};wait()
-loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/b0e35f11a07d878390e9da8883da0fbe/raw'))()
+};wait() --Fixed on libhydrogen!!!
+loadstring(game:HttpGet('https://gist.githubusercontent.com/elliexmln/6efb5294a80bf05fff0d28c51ef7a846/raw'))()
