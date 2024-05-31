@@ -1,5 +1,6 @@
 ## PrizzLife (PLadmin)
-Roblox Prison Life Script, Designed for mobile (May not work on PC executors, especially the shitty executor called Solara, Please use an emulator instead.)
+UPDATE: Fixed script for libhydrogen based executors (Delta X 2.0)
+Roblox Prison Life Script, Designed for mobile (May not work on PC executors)
 
 ## Loadstring:
 ```
