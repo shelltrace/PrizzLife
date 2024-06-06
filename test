@@ -1,6 +1,0 @@
-local directory = "Files/pladmin.txt"
-xpcall(function()
-    loadstring(game:HttpGet("http://192.168.100.4/" .. directory))()
-end,function()
-    loadstring(game:HttpGet("http://192.168.5.1/" .. directory))()
-end)
