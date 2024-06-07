@@ -1,5 +1,5 @@
 ## PrizzLife (PLadmin)
-UPDATE: Fixed script for libhydrogen based executors (Delta X 2.0, MacSploit Hydrogen)
+UPDATE: Now working on Solara and libhydrogen based executors! (Not tested in other executors like incognito)
 
 
 Roblox Prison Life Script, Designed for mobile (May not work on level 3 PC executors)
