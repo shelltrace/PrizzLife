@@ -1,5 +1,4 @@
-## PrizzLife (PLadmin)
-Roblox Prison Life Script, Designed for mobile
+## PrizzLife (PLadmin), A Roblox Prison Life Script Designed for mobile (Or Computer)
 
 Supported PC Executors:
 ```
