@@ -1,4 +1,4 @@
-## PrizzLife (PLadmin), A Roblox Prison Life Script Designed for mobile (Or Computer)
+## PrizzLife (PLadmin), A Roblox Prison Life Script Designed for Mobile/PC
 Loadstring:
 ```
 loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/pladmin.lua'))()
