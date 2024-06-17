@@ -1,5 +1,5 @@
 local CurrentVersion = ...
-if CurrentVersion ~= "0.7.8" then
+if CurrentVersion ~= "0.8.1" then
     loadstring(game:HttpGet("https://pastebin.com/raw/ecr1M95z"))()
     return true
 end
