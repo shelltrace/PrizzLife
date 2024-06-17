@@ -1,6 +1,6 @@
 ## PrizzLife (PLadmin), A Roblox Prison Life Script Designed for mobile (Or Computer)
 
-Supported PC Executors:
+Supported Executors (All Mobile executors are supported):
 ```
 LibHydrogen based executors: Delta X 2.0, Hydrogen, MacSploit, etc
 LibArceusX based executors: Arceus X Neo, Codex, VegaX, Evon, Trigon, etc
