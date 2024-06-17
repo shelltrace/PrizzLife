@@ -1,8 +1,12 @@
 ## PrizzLife (PLadmin)
-UPDATE: Now working on Solara and libhydrogen based executors! (Not tested in other executors like incognito)
+Roblox Prison Life Script, Designed for mobile
 
-
-Roblox Prison Life Script, Designed for mobile (May not work on level 3 PC executors)
+Supported PC Executors:
+```
+LibHydrogen based executors: Delta X 2.0, Hydrogen, MacSploit, etc
+LibArceusX based executors: Arceus X Neo, Codex, VegaX, Evon, Trigon, etc
+Windows based executors: Solara
+```
 
 ## Loadstring:
 ```
@@ -10,4 +14,4 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/m
 ```
 
 ## Discord:
-https://discord.gg/RXHFprkPZ6
+https://discord.gg/EjVQCdH6W6
