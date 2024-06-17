@@ -20,6 +20,5 @@ PLadmin_Settings = {
   RankedMultiCmd = true; --Allow ranked players to use the arguments: "all, and team", EX: ?kill all
   RankedOutput = true; --Chat the output commands of ranked players
   WhisperToRanked = true; --Use whisper for outputing commands for ranked players
-  Force_isMobile = false; --Force mobile action gui (Punch and crawl buttons) if executor is too shitty and detected as "emulator"
 };wait()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/Source/update_v0.8.0_FIX.lua'))()
