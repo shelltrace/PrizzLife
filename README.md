@@ -8,8 +8,7 @@ Supported Executors:
 ```
 LibHydrogen based executors: Delta X 2.0, Hydrogen, MacSploit
 LibArceusX based executors: Arceus X Neo, Codex, VegaX, Evon, Trigon
-Misc executors: Fluxus, Other Mobile Executors and etc
-Windows based executors: Solara
+Misc executors: Fluxus, Solara PC, Other Mobile Executors and etc
 ```
 
 ## Discord:
