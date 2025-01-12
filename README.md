@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong>PrizzLife</strong> - A powerful exploit for Roblox with multi-executor support.
+  <strong>PrizzLife</strong> - A powerful exploit for Roblox Prison Life with multi-executor support.
 </p>
 
 ---
