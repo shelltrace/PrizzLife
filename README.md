@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Active-brightgreen" alt="Status">
-    <!-- <img src="https://img.shields.io/badge/Status-Inactive-red" alt="Status"> -->
+    <!-- UPDATE ON DISCONTINUE: <img src="https://img.shields.io/badge/Status-Inactive-red" alt="Status"> -->
   <img src="https://img.shields.io/badge/Version-0.8.1-blue" alt="Version">
   <img src="https://img.shields.io/github/license/devguy100/PrizzLife" alt="License">
 </p>
