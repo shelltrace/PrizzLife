@@ -1,17 +1,54 @@
-## PrizzLife (PLadmin), A Roblox Prison Life Script Designed for Mobile/PC
-Loadstring:
+<h1 align="center">PrizzLife Admin</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen" alt="Status">
+  <img src="https://img.shields.io/badge/Version-1.0-blue" alt="Version">
+  <img src="https://img.shields.io/github/license/devguy100/PrizzLife" alt="License">
+</p>
+
+<p align="center">
+  <strong>PrizzLife</strong> - A powerful exploit for Roblox with multi-executor support.
+</p>
+
+---
+
+## 🚀 Supported Executors
+
+```plaintext
+LibHydrogen based executors: Delta X 2.0, Hydrogen, MacSploit
+LibArceusX based executors: Arceus X Neo, Codex, VegaX, Evon, Trigon
+Misc executors: Fluxus, Solara PC, Swift, Other Mobile Executors, etc.
 ```
+
+---
+
+## 🐛 Bug Reporting
+
+If you encounter any bugs or issues while using PrizzLife, feel free to join our Discord community for support and updates.
+
+### Discord:
+<a href="https://discord.gg/yMyYPfmkBc" target="_blank">
+  <img src="https://img.shields.io/badge/Discord-Join%20Now-5865F2?logo=discord&logoColor=white" alt="Discord">
+</a>
+
+---
+
+## 🔗 Usage
+
+Copy and paste the following script into your Roblox executor to load PrizzLife:
+
+```lua
 loadstring(game:HttpGet('https://raw.githubusercontent.com/devguy100/PrizzLife/main/pladmin.lua'))()
 ```
 
-Supported Executors:
-```
-LibHydrogen based executors: Delta X 2.0, Hydrogen, MacSploit
-LibArceusX based executors: Arceus X Neo, Codex, VegaX, Evon, Trigon
-Misc executors: Fluxus, Solara PC, Other Mobile Executors and etc
-```
+---
 
-If you encounter any bugs, join the discord.
+## 📜 License
 
-## Discord:
-https://discord.gg/yMyYPfmkBc
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+---
+
+<p align="center">
+  <strong>Happy exploiting! 🚀</strong>
+</p>
