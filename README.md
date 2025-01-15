@@ -7,8 +7,18 @@
 </p>
 
 <p align="center">
-  <strong>PrizzLife</strong> - A powerful exploit for Roblox Prison Life with multi-executor support.
+  <strong>PrizzLife</strong> - A powerful exploit tool for Roblox <a href="https://www.roblox.com/games/155615604/Prison-Life">Prison Life</a> with multi-executor support.
 </p>
+
+---
+
+<h2 align="center">⚠️ Important Notice</h2>
+
+<p align="center">
+  <strong>This project is no longer maintained.</strong><br>
+  No updates, bug fixes, or support will be provided. Use at your own risk.
+</p>
+
 
 ---
 
@@ -22,14 +32,10 @@ Misc executors: Fluxus, Solara PC, Swift, Other Mobile Executors, etc.
 
 ---
 
-## 🐛 Bug Reporting
-
-If you encounter any bugs or issues while using PrizzLife, feel free to join our Discord community for support and updates.
-
 ### Discord:
-<a href="https://discord.gg/yMyYPfmkBc" target="_blank">
-  <img src="https://img.shields.io/badge/Discord-Join%20Now-5865F2?logo=discord&logoColor=white" alt="Discord">
-</a>
+<div style="text-align: center;">
+  <a href="https://discord.gg/yMyYPfmkBc" target="_blank">Join our Discord</a>
+</div>
 
 ---
 
