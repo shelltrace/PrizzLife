@@ -1,7 +1,8 @@
 <h1 align="center">PrizzLife Admin</h1>
+<h2 align="center">RECONTINUED - OPEN SOURCE</h2>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Inactive-red" alt="Status">
+  <img src="https://img.shields.io/badge/Status-Active-green" alt="Status">
   <img src="https://img.shields.io/badge/Version-0.8.1-blue" alt="Version">
   <img src="https://img.shields.io/github/license/devguy100/PrizzLife" alt="License">
 </p>
@@ -9,16 +10,6 @@
 <p align="center">
   <strong>PrizzLife</strong> - A powerful exploit tool for Roblox <a href="https://www.roblox.com/games/155615604/Prison-Life">Prison Life</a> with multi-executor support.
 </p>
-
----
-
-<h2 align="center">⚠️ Important Notice</h2>
-
-<p align="center">
-  <strong>This project is no longer maintained.</strong><br>
-  No updates, bug fixes, or support will be provided. Use at your own risk.
-</p>
-
 
 ---
 
