@@ -40,6 +40,19 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/devguy100/PrizzLife/m
 
 ---
 
+## Credits
+
+Credits to these people:
+
+- Wrath Admin
+- [Infinity Yield](https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source)
+- [Styx-Developer](https://github.com/Styx-Developer)
+- Tiger Admin
+- [H17S3](https://github.com/h17s3)
+- elliexmln
+
+---
+
 ## 📜 License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
