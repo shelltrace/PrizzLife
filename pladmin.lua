@@ -1,6 +1,12 @@
---// PRIZZLIFE, Fixed by H17S3
---// IP LOGGERS HAVE BEEN REMOVED
---// This script is skidded from wrath admin, infinity yield, tiger admin and local players script
+--[[
+Credits:
+- Wrath Admin
+- Inf yield
+- Styx-dev
+- Tiger Admin
+- H17S3
+
+]]--
 
 Execution_Runtime = tick() 
 PLadmin_Settings = { 
