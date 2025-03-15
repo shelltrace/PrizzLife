@@ -1,12 +1,4 @@
---[[
-Credits:
-- Wrath Admin
-- Inf yield
-- Styx-dev
-- Tiger Admin
-- H17S3
-
-]]--
+currentVersion = "0.8.1"
 
 Execution_Runtime = tick() 
 PLadmin_Settings = { 
@@ -238,7 +230,7 @@ ScriptName.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScriptName.BorderSizePixel = 0
 ScriptName.Size = UDim2.new(0, 295, 0, 20)
 ScriptName.Font = Enum.Font.SourceSans
-ScriptName.Text = "PrizzLife v0.8.1"
+ScriptName.Text = "PrizzLife v" .. currentVersion
 ScriptName.TextColor3 = Color3.fromRGB(255, 255, 255)
 ScriptName.TextSize = 18.000
 ScriptName.TextYAlignment = Enum.TextYAlignment.Top
