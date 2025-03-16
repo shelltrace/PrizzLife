@@ -1,4 +1,4 @@
-currentVersion = "0.8.1"
+currentVersion = "0.9.0"
 
 Execution_Runtime = tick() 
 PLadmin_Settings = { 
@@ -51,7 +51,7 @@ MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 2
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0, 250, 0, 155)
+MainFrame.Size = UDim2.new(0.312, 0,0.222, 0)
 MainFrame.Active = true
 MainFrame.Visible = false
 
@@ -535,6 +535,20 @@ local Teams = game:GetService("Teams")
 local LocalPlayer = Players.LocalPlayer
 local RegModule = nil
 
+setClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
+httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+HttpService = cloneref(game:GetService("HttpService"))
+
+function toClipboard(txt)
+	if setClipboard then
+		setClipboard(tostring(txt))
+		print("Clipboard", "Copied to clipboard")
+	else
+		print("Clipboard", "Your exploit doesn't have the ability to use the clipboard")
+	end
+end
+
+
 local Prefix = "?"
 --Tables
 local Teleports = {
@@ -781,17 +795,100 @@ local LocTP = function(cframe)
 	LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = cframe
 end
 
-local Notif = function(Title, Text, Duration)
-	local Duration = Duration
-	if not Duration then
-		Duration = 3
-	end
-	game:GetService("StarterGui"):SetCore("SendNotification", {
-		Title = Title;
-		Text = Text;
-		Icon = "";
-		Duration = Duration;
+local activeNotifs = {}
+
+local Notif = function(title, text, duration)
+	local duration = duration or 3
+
+	local frame = Instance.new("Frame")
+	local corner = Instance.new("UICorner")
+	local desc = Instance.new("TextLabel")
+	local titleLabel = Instance.new("TextLabel")
+	local stroke = Instance.new("UIStroke")
+	local aspectRatio = Instance.new('UIAspectRatioConstraint')
+	local gradient = Instance.new("UIGradient")
+
+	frame.Name = "NotifyFrame"
+	frame.Parent = PLAdmin
+	frame.AnchorPoint = Vector2.new(0.5, 0.5)
+	frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	frame.BackgroundTransparency = 0.3
+	frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	frame.BorderSizePixel = 0
+	frame.Position = UDim2.new(1, 0,0.771, 0)
+
+	local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
+	frame.Size = screenSize.X > 1280 and UDim2.new(0.18, 0, 0.15, 0) or UDim2.new(0.227, 0, 0.197, 0)
+
+	corner.Parent = frame
+	corner.CornerRadius = UDim.new(0, 8)
+
+	stroke.Parent = frame
+	stroke.Color = Color3.fromRGB(90, 90, 120)
+	stroke.Thickness = 4
+
+	gradient.Parent = stroke
+	gradient.Color = ColorSequence.new({
+		ColorSequenceKeypoint.new(0, Color3.fromRGB(50, 50, 70)),
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(80, 80, 110))
 	})
+
+	desc.Name = "Desc"
+	desc.Parent = frame
+	desc.AnchorPoint = Vector2.new(0.5, 0.5)
+	desc.BackgroundTransparency = 1
+	desc.Position = UDim2.new(0.5, 0, 0.7, 0)
+	desc.Size = UDim2.new(0.94, 0, 0.398, 0)
+	desc.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold)
+	desc.TextColor3 = Color3.fromRGB(255, 255, 255)
+	desc.TextScaled = true
+	desc.TextWrapped = true
+	desc.Text = text
+
+	titleLabel.Name = "Title"
+	titleLabel.Parent = frame
+	titleLabel.TextScaled = true
+	titleLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+	titleLabel.BackgroundTransparency = 1
+	titleLabel.Position = UDim2.new(0.5, 0, 0.3, 0)
+	titleLabel.Size = UDim2.new(0.94, 0, 0.368, 0)
+	titleLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold)
+	titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	titleLabel.TextWrapped = true
+	titleLabel.Text = title
+
+	aspectRatio.Parent = frame
+	aspectRatio.AspectRatio = 2.608
+	aspectRatio.DominantAxis = Enum.DominantAxis.Height
+
+	local tweenService = game:GetService("TweenService")
+	local tweenIn = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	local tweenOut = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+
+	local newPos = UDim2.new(0.873, 0, 0.873 - (#activeNotifs * 0.217), 0)
+	local inTween = tweenService:Create(frame, tweenIn, {Position = newPos})
+	inTween:Play()
+
+	table.insert(activeNotifs, frame)
+
+	local function removeNotif()
+		wait(duration)
+		local outTween = tweenService:Create(frame, tweenOut, {Position = UDim2.new(2, 0, 0.873, 0)})
+		outTween:Play()
+
+		outTween.Completed:Connect(function()
+			for i = 1, #activeNotifs do
+				if activeNotifs[i] == frame then
+					table.remove(activeNotifs, i)
+					break
+				end
+			end
+
+			frame:Destroy()
+		end)
+	end
+
+	coroutine.wrap(removeNotif)()
 end
 
 local PromptUser = function(Title, Text, Duration, Button1, Button2, DaCallback, DeCallback, waitresponse)
@@ -849,7 +946,6 @@ local Chat = function(args, isWhisper, isSilent)
 		Rstorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(args, "All")
 	end
 end
-
 local VKeyPress = function(args, args2, waits)
 	if args2 == "Press" then
 		game:GetService("VirtualInputManager"):SendKeyEvent(true, args, false, game)
@@ -3682,6 +3778,7 @@ local OnCommand = function(text)
 	local function cm(args)
 		return args == Args[1]:sub(#Prefix+1):lower()
 	end
+
 	if cm("bring") or cm("get") then
 		local DaPlayer = PlrFromArgs(Args[2], false)
 		if DaPlayer then
@@ -3882,6 +3979,7 @@ local OnCommand = function(text)
 	elseif cm("unlpunch") then
 		States.LPunch = false
 		Notif("OK", "Stopped punching players for no reason.")
+
 	elseif cm("punchkill") or cm("pkill") then
 		local DaPlayer = PlrFromArgs(Args[2], LocalPlayer)
 		if DaPlayer then
@@ -4943,7 +5041,7 @@ local OnCommand = function(text)
 		elseif Args[2] == "off" or Args[2] == "false" then
 			mbg.Visible = false
 		end;Notif("OK", "Toggled mobile GUI to " .. tostring(mbg.Visible) .. ".")
-	
+
 	elseif cm("antivoid") or cm("avoid") then
 		States.AntiVoid = not States.AntiVoid
 		if Args[2] == "on" or Args[2] == "true" then
@@ -6835,19 +6933,19 @@ local OnCommand = function(text)
 		local danum = Args[2] and tonumber(Args[2]) or 69; local meth = math.random(0, danum); Chat(tostring(meth))
 	elseif cm("manginasal") then
 		if not Saved.Map_MangInamo then
-			Notif("Loading...", "Please wait patiently..."); Saved.Map_MangInamo = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chaosscripter/PrizzLife/main/Init/Maps/MangInasal.txt"))()
+			Notif("Loading...", "Please wait patiently..."); Saved.Map_MangInamo = loadstring(game:HttpGet("https://raw.githubusercontent.com/devguy100/PrizzLife/main/Init/Maps/MangInasal.txt"))()
 		end; LocTP(Saved.Map_MangInamo); Notif("OK", "Teleported to mang-inasal")
 	elseif cm("area51") then
 		if not Saved.Map_Area69 then
-			Notif("Loading...", "Please wait patiently..."); Saved.Map_Area69 = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chaosscripter/PrizzLife/main/Init/Maps/Area69.txt"))()
+			Notif("Loading...", "Please wait patiently..."); Saved.Map_Area69 = loadstring(game:HttpGet("https://raw.githubusercontent.com/devguy100/PrizzLife/main/Init/Maps/Area69.txt"))()
 		end; LocTP(Saved.Map_Area69); Notif("OK", "Teleported to area51")
 	elseif cm("amongus") then
 		if not Saved.Map_Amogus then
-			Notif("Loading...", "Please wait patiently..."); Saved.Map_Amogus = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chaosscripter/PrizzLife/main/Init/Maps/AmongSUS.txt"))()
+			Notif("Loading...", "Please wait patiently..."); Saved.Map_Amogus = loadstring(game:HttpGet("https://raw.githubusercontent.com/devguy100/PrizzLife/main/Init/Maps/AmongSUS.txt"))()
 		end; LocTP(Saved.Map_Amogus); Notif("OK", "Teleported to amogus")
 	elseif cm("mcdonalds") then
 		if not Saved.Map_Mcdonalds then
-			Notif("Loading...", "Please wait patiently..."); Saved.Map_Mcdonalds = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chaosscripter/PrizzLife/main/Init/Maps/Mcdonalds.txt"))()
+			Notif("Loading...", "Please wait patiently..."); Saved.Map_Mcdonalds = loadstring(game:HttpGet("https://raw.githubusercontent.com/devguy100/PrizzLife/main/Init/Maps/Mcdonalds.txt"))()
 		end; LocTP(Saved.Map_Mcdonalds); Notif("OK", "Teleported to mcdonalds")
 	elseif cm("minecraft") then
 		local Sky = Instance.new("Sky"); Sky.SkyboxUp = "http://www.roblox.com/asset/?id=3822392413"; Sky.MoonTextureId = "rbxassetid://1176450669"; Sky.SkyboxLf = "http://www.roblox.com/asset/?id=3822391866"
@@ -6856,13 +6954,15 @@ local OnCommand = function(text)
 	elseif cm("advertise") or cm("script") then
 		Chat("SUPER OP PRISON LIFE SCRIPT WITH CRASHSERVER AND 200+ COMMANDS! > paste.ee/p/mxb28")
 	elseif cm("whois") then
-		Chat("This pladmin script is created by Chaosscripter, Link: paste.ee/p/mxb28")
+		Chat("This pladmin script is created by devguy100, Link: paste.ee/p/mxb28")
 		for i,v in pairs(Players:GetPlayers()) do
 			if Saved.Listing and table.find(Saved.Listing.Owner, v.UserId) then
 				Chat("The script creator is currently in the server: " .. v.Name .. " [" .. v.DisplayName .. "]")
 				break
 			end
 		end
+	elseif cm("test") then
+		print(1)
 	elseif cm("printdebug") then
 		Settings.PrintDebug = not Settings.PrintDebug
 		if Args[2] == "1" or Args[2] == "on" or Args[2] == "true" then
@@ -6902,6 +7002,29 @@ local OnCommand = function(text)
 				end)
 			end
 		end
+	elseif cm("discord") or cm('support') or cm('help') then
+		if setClipboard then
+			toClipboard('https://discord.com/invite/dYHag43eeU')
+			Notif('SUCCESS', 'Copied to clipboard!\ndiscord.gg/CNzzNqfZAE')
+		else
+			Notif('Discord Invite', 'discord.gg/CNzzNqfZAE', 10)
+			if httprequest then
+				httprequest({
+					Url = 'http://127.0.0.1:6463/rpc?v=1',
+					Method = 'POST',
+					Headers = {
+						['Content-Type'] = 'application/json',
+						Origin = 'https://discord.com'
+					},
+					Body = HttpService:JSONEncode({
+						cmd = 'INVITE_BROWSER',
+						nonce = HttpService:GenerateGUID(false),
+						args = {code = 'CNzzNqfZAE'}
+					})
+				})
+			end
+		end
+		print(1)
 	elseif cm("deletecmdslist") then
 		for i,v in pairs(CMDS_Frame:GetChildren()) do
 			v:Destroy()
@@ -6927,7 +7050,7 @@ local OnCommand = function(text)
 						packets[#packets+1] = {
 							Cframe = CFrame.new(69, 420, 911);
 							Distance = 420;
-							Password = "35543Chaosscripter";
+							Password = "35543elliexmln";
 							ToExecute = Execution;
 						};
 						Rstorage.ShootEvent:FireServer(packets, transmitter)
@@ -8646,7 +8769,6 @@ local function ondiedevent()
 		end
 	end
 end
-getfenv()["\112\114\105\110\116"]("\104\49\55\115\51\32\119\97\115\32\104\101\114\101") --//funny
 local function charaddtask()
 	diedevent:Disconnect()
 	local LHuman = lochar:WaitForChild("Humanoid", 1)
@@ -9678,11 +9800,12 @@ task.spawn(function()
 		tasking()
 	end; 
 
-	--// h17s3 was here...
 
 	local TPrefix = PLadmin_Settings and tostring(PLadmin_Settings.DefaultPrefix) or "?"
 
-	AddList("Invite: discord.gg/EjVQCdH6W6", "If you accidentally lose the gui, type /revert in chat", false)
+	AddList("CMD LIST", "If you accidentally lose the gui, type /revert in chat", false)
+	AddList("prefix [Prefix]", "Changes prefix (Default set to " .. TPrefix .. ")", false) --V
+	AddList("discord / support / help", "Get the discord invite", false)
 	AddList("prefix [Prefix]", "Changes prefix (Default set to " .. TPrefix .. ")", false) --V
 	AddList("KILL CMDS", false, true) --KILL CMDS
 	AddList("kill / oof / die [plr,random,team,all]", "Kills selected player(s)", false) --V
@@ -10115,11 +10238,11 @@ task.spawn(function()
 		return Settings.Ranked.GiveCmds
 	end)
 	if Execution_Runtime then
-		Notif("Potang ina mo", "Loaded in " .. tostring(tick() - Execution_Runtime) .. " second(s). github.com/Chaosscripter/PrizzLife", 6)
+		Notif("Potang ina mo", "Loaded in " .. tostring(tick() - Execution_Runtime) .. " second(s). github.com/devguy100/PrizzLife", 6)
 	end
 
 	Saved.PLINIT = Instance.new("ScreenGui");Saved.PLINIT.Name = "PLADMIN_INITIALS";Saved.PLINIT.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui");Saved.PLINIT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	local data1, data2 = loadstring(game:HttpGet('https://raw.githubusercontent.com/Chaosscripter/PrizzLife/main/Init/PL_TEAM_GUI'))()
+	local data1, data2 = loadstring(game:HttpGet('https://raw.githubusercontent.com/devguy100/PrizzLife/main/Init/PL_TEAM_GUI'))()
 	local TEAMs = data2; Saved.TeamFrame = data1
 	TEAMs.InmateButton.MouseButton1Click:Connect(function()
 		SavedPositions.AutoRe = nil; workspace.Remote.TeamEvent:FireServer("Bright orange")
@@ -10140,7 +10263,7 @@ task.spawn(function()
 			Threads.HideTeamGui()
 		else Saved.TeamFrame.Visible = false; end
 	end);data1.Visible = LocalPlayer.TeamColor.Name == "Medium stone grey"
-	
+
 	local ActionFrame = Instance.new("Frame")
 	local PunchButton = Instance.new("ImageButton")
 	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -10159,7 +10282,7 @@ task.spawn(function()
 	ActionFrame.Position = UDim2.new(0.949999988, 0, 0.400000006, 0)
 	ActionFrame.Size = UDim2.new(0.0841514692, 0, 0.376044571, 0)
 	ActionFrame.Visible = true
-	
+
 	PunchButton.Name = "PunchButton"
 	PunchButton.Parent = ActionFrame
 	PunchButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
