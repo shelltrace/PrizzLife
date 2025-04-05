@@ -7004,10 +7004,10 @@ local OnCommand = function(text)
 		end
 	elseif cm("discord") or cm('support') or cm('help') then
 		if setClipboard then
-			toClipboard('https://discord.com/invite/dYHag43eeU')
-			Notif('SUCCESS', 'Copied to clipboard!\ndiscord.gg/CNzzNqfZAE')
+			toClipboard('https://discord.com/invite/pnh2RyzR6W')
+			Notif('SUCCESS', 'Copied to clipboard!\ndiscord.gg/pnh2RyzR6W')
 		else
-			Notif('Discord Invite', 'discord.gg/CNzzNqfZAE', 10)
+			Notif('Discord Invite', 'discord.gg/pnh2RyzR6W', 10)
 			if httprequest then
 				httprequest({
 					Url = 'http://127.0.0.1:6463/rpc?v=1',
@@ -7019,7 +7019,7 @@ local OnCommand = function(text)
 					Body = HttpService:JSONEncode({
 						cmd = 'INVITE_BROWSER',
 						nonce = HttpService:GenerateGUID(false),
-						args = {code = 'CNzzNqfZAE'}
+						args = {code = 'pnh2RyzR6W'}
 					})
 				})
 			end
@@ -9803,7 +9803,7 @@ task.spawn(function()
 
 	local TPrefix = PLadmin_Settings and tostring(PLadmin_Settings.DefaultPrefix) or "?"
 
-	AddList("CMD LIST", "If you accidentally lose the gui, type /revert in chat", false)
+	AddList("Command List", "If you accidentally lose the gui, type /revert in chat", false)
 	AddList("prefix [Prefix]", "Changes prefix (Default set to " .. TPrefix .. ")", false) --V
 	AddList("discord / support / help", "Get the discord invite", false)
 	AddList("prefix [Prefix]", "Changes prefix (Default set to " .. TPrefix .. ")", false) --V
