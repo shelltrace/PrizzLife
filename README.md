@@ -3,7 +3,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Active-green" alt="Status">
-  <img src="https://img.shields.io/badge/Version-0.8.1-blue" alt="Version">
+  <img src="https://img.shields.io/badge/Version-0.9.0-blue" alt="Version">
   <img src="https://img.shields.io/github/license/devguy100/PrizzLife" alt="License">
 </p>
 
@@ -25,7 +25,7 @@ Misc executors: Fluxus, Solara PC, Swift, Other Mobile Executors, etc.
 
 ### Discord:
 <div style="text-align: center;">
-  <a href="https://discord.gg/yMyYPfmkBc" target="_blank">Join our Discord</a>
+  <a href="https://discord.gg/pnh2RyzR6W" target="_blank">Join our Discord</a>
 </div>
 
 ---
