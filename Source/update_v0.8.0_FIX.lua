@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://pastebin.com/raw/aB2bfKEP"))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/devguy100/PrizzLife/main/pladmin.lua'))()
