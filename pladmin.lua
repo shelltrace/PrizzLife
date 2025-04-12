@@ -10238,7 +10238,9 @@ task.spawn(function()
 		return Settings.Ranked.GiveCmds
 	end)
 	if Execution_Runtime then
-		Notif("Potang ina mo", "Loaded in " .. tostring(tick() - Execution_Runtime) .. " second(s). github.com/devguy100/PrizzLife", 6)
+		Notif("Success", "Loaded in " .. tostring(tick() - Execution_Runtime) .. " second(s).", 6)
+                Notif("Loader", "Updated as of 5th April 2025. github.com/devguy100/PrizzLife")
+
 	end
 
 	Saved.PLINIT = Instance.new("ScreenGui");Saved.PLINIT.Name = "PLADMIN_INITIALS";Saved.PLINIT.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui");Saved.PLINIT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
