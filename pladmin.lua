@@ -192,7 +192,7 @@ function DraggifyFrame(Frame)
 	end)
 end
 
-loadstring(game:HttpGet("https://gist.githubusercontent.com/devguy100/d072e90c00da292e695b3748c1361499/raw/d9c1e9fe7432c04adf1bd836277ce4070b88aae2/cmdlist.txt"))
+loadstring(game:HttpGet("https://gist.githubusercontent.com/devguy100/d072e90c00da292e695b3748c1361499/raw/d9c1e9fe7432c04adf1bd836277ce4070b88aae2/cmdlist.txt"))()
 Instance.new("Folder", game:GetService("Workspace")).Name = "PLADMIN LOADED SUCCESS"
 local PLAdmin = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
