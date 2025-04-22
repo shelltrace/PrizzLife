@@ -1,4 +1,4 @@
-currentVersion = "0.9.0"
+currentVersion = "0.9.1"
 
 Execution_Runtime = tick() 
 PLadmin_Settings = { 
@@ -1552,141 +1552,176 @@ local BringCar = function(args, usedcar, policecar)
 	end; States.IsBringing = false; Stopped = nil
 	return Car
 end
---I know you skidded my bring, you think i wouldnt notice?
+--I know you skidded my bring, you think i wouldnt notice?					Car.PrimaryPart = Car:FindFirstChild("RWD"); Car:SetPrimaryPartCFrame(Destination)
 local BringPL = function(BringFrom, Destination, isCFrame, donotusecar, dontbreakyet)
-	if BringFrom.TeamColor == BrickColor.new("Medium stone grey") or not (BringFrom.Character and BringFrom.Character:FindFirstChildOfClass("Humanoid") and BringFrom.Character:FindFirstChildOfClass("Humanoid").Health ~= 0) then
-		Notif("Error", "Cannot bring this player. Either dead or is in neutrals team.")
-		return
-	end; if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid").Sit then LAction("unsit", true); end
-	local Car = nil; local CarButton = workspace.Prison_ITEMS.buttons["Car Spawner"]["Car Spawner"]; local ButtonPivot = CarButton:GetPivot()
-	if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-		local LastPos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
-		if not (BringFrom == LocalPlayer) then
-			repeat task.wait()
-				for i,v in pairs(workspace.CarContainer:GetChildren()) do
-					if v:IsA("Model") and v:FindFirstChild("Body") and v.Body:FindFirstChild("VehicleSeat") and v.Name ~= "DONOTUSECAR" and not v.Body.VehicleSeat.Occupant then
-						for ii,vv in pairs(v.Body:GetChildren()) do
-							if vv:IsA("Seat") and not vv.Occupant then
-								Car = v
-								break
-							end
-						end
-						if Car then
-							break
-						end
-					end
-				end
-				if not Car then
-					coroutine.wrap(function()
-						LocTP(ButtonPivot)
-						workspace.Remote.ItemHandler:InvokeServer(CarButton)
-					end)()
-				end
-			until Car
-			if donotusecar then Car.Name = "DONOTUSECAR"; end
-			if Car and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and BringFrom.Character and BringFrom.Character:FindFirstChild("Torso") and BringFrom.Character:FindFirstChildOfClass("Humanoid") then
-				repeat task.wait() until Car:FindFirstChild("RWD") and Car:FindFirstChild("Body") and Car:FindFirstChild("Body"):FindFirstChild("VehicleSeat"); States.IsBringing = true
-				local seattimeout = tick() + 8
-				local LHuman, LRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid"), LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-				repeat task.wait()
-					LHuman = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid"); LRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-					if LHuman and LRoot then
-						LRoot.CFrame = CFrame.new(Car.Body.VehicleSeat.Position); Car.Body.VehicleSeat:Sit(LHuman)
-					end
-				until LHuman.Sit or tick() - seattimeout >=0; seattimeout = nil
-				if not LHuman or not LHuman.Sit then
-					Notif("Error", "This seat is either bugged or ping lag!"); LAction("unsit", true)
-					States.IsBringing = false; LocTP(LastPos); Car.Name = "DONOTUSECAR"
-					return
-				end; if BringFrom.TeamColor == BrickColor.new("Medium stone grey") then
-					Notif("Error", "Player is in neutrals, bring cancelled."); LAction("unsit", true)
-					States.IsBringing = false; LocTP(LastPos)
-					return
-				end
-				local TargetSeat = nil
-				for i,v in pairs(Car.Body:GetChildren()) do
-					if v:IsA("Seat") and not v.Occupant then
-						TargetSeat = v
-						break
-					end
-				end; if not TargetSeat then
-					Notif("Error", "The car seats are too full!"); LocTP(LastPos)
-					return
-				end
-				local VChar = BringFrom.Character
-				local VHuman = VChar and VChar:FindFirstChildOfClass("Humanoid")
-				local VRoot = VChar and VChar:FindFirstChild("HumanoidRootPart")
-				local Timeout = tick() + 17
-				local CarSpin, SpinRad = false, 0
-				task.spawn(function()
-					Car.PrimaryPart = TargetSeat; Car:SetPrimaryPartCFrame(VRoot.CFrame * CFrame.new(0, -0.3, 0))
-					task.wait(4); CarSpin = true
-				end)
-				repeat 
-					task.wait()
-					local step1 = CPing() / 2 / 2 / 2
-					if TargetSeat.Occupant and not VHuman.Sit then
-						for i,v in pairs(Car.Body:GetChildren()) do
-							if v:IsA("Seat") and not v.Occupant then
-								TargetSeat = v
-								break
-							end
-						end
-					end
-					Car.PrimaryPart = TargetSeat
-					local Movement = Vector3.new(VRoot.Velocity.X, 0, VRoot.Velocity.Z)
-					local Predict = (VRoot.CFrame - (Vector3.new(0, 0, -0.1) * step1)) + (Movement * (step1 * 28))
-					if Predict.Position.Y > 1 then
-						if CarSpin then
-							SpinRad += 30
-							Car:SetPrimaryPartCFrame(Predict * CFrame.Angles(0, math.rad(SpinRad), 0))
-						else
-							Car:SetPrimaryPartCFrame(Predict)
-						end
-					else
-						Car:SetPrimaryPartCFrame(LastPos)
-					end
-					if BringFrom.TeamColor == BrickColor.new("Medium stone grey") then
-						break
-					end
-				until not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or not BringFrom.Character or not LHuman.Sit or VChar ~= BringFrom.Character or VHuman.Sit or VHuman.Health == 0 or tick() - Timeout >=0
-				Timeout = nil
-				if VHuman and not VHuman.Sit then
-					Notif("Error", "Failed to bring!"); LAction("unsit", true); LocTP(LastPos); States.IsBringing = false
-					return
-				end
-				if isCFrame then
-					Car.PrimaryPart = Car:FindFirstChild("RWD"); Car:SetPrimaryPartCFrame(Destination)
-				else
-					Car.PrimaryPart = Car:FindFirstChild("RWD")
-					local Destiny = Destination ~= LocalPlayer and Destination.Character:FindFirstChild("HumanoidRootPart").CFrame or LastPos
-					Car:SetPrimaryPartCFrame(Destiny)
-					if Destination ~= LocalPlayer and (donotusecar or not Settings.User.AutoDumpCar) then
-						wait(.2); LAction("unsit", true); LocTP(LastPos)
-					end
-				end; SavedArgs.BringSuccess = true
-				if Settings.User.AutoDumpCar and not donotusecar and not dontbreakyet then
-					local Tinedout = tick() + 15
-					repeat task.wait() until VHuman.Health == 0 or not VHuman.Sit or tick() - Tinedout >=0 or not Players:FindFirstChild(BringFrom and BringFrom.Name or "nil"); Tinedout = nil
-					if not LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Sit then
-						LastPos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
-						repeat task.wait()
-							Car.Body.VehicleSeat:Sit(LocalPlayer.Character:FindFirstChildOfClass("Humanoid"))
-						until LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Sit
-					end
-					Car.PrimaryPart = Car:FindFirstChild("RWD"); Car:SetPrimaryPartCFrame(CFrame.new(0, 9, 0)); wait(.2)
-					LAction("unsit", true); LocTP(LastPos)
-				end; States.IsBringing = false
-			end
-		else
-			if isCFrame then
-				LocTP(Destination)
-			else
-				LocTP(Destination.Character:FindFirstChild("HumanoidRootPart").CFrame)
-			end
-		end
+    if BringFrom.TeamColor == BrickColor.new("Medium stone grey") or not (BringFrom.Character and BringFrom.Character:FindFirstChildOfClass("Humanoid") and BringFrom.Character:FindFirstChildOfClass("Humanoid").Health ~= 0) then
+        Notif("Error", "Cannot bring this player. Either dead or is in neutrals team.")
+        return
+    end
+    if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid").Sit then
+        LAction("unsit", true)
+    end
+    local Car = nil
+    local CarButton = workspace.Prison_ITEMS.buttons["Car Spawner"]["Car Spawner"]
+    local ButtonPivot = CarButton:GetPivot()
+    if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        local LastPos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
+        if not (BringFrom == LocalPlayer) then
+            repeat
+                task.wait()
+                for i,v in pairs(workspace.CarContainer:GetChildren()) do
+                    if v:IsA("Model") and v:FindFirstChild("Body") and v.Body:FindFirstChild("VehicleSeat") and v.Name ~= "DONOTUSECAR" and not v.Body.VehicleSeat.Occupant then
+                        for ii,vv in pairs(v.Body:GetChildren()) do
+                            if vv:IsA("Seat") and not vv.Occupant then
+                                Car = v
+                                break
+                            end
+                        end
+                        if Car then
+                            break
+                        end
+                    end
+                end
+                if not Car then
+                    coroutine.wrap(function()
+                        LocTP(ButtonPivot)
+                        workspace.Remote.ItemHandler:InvokeServer(CarButton)
+                    end)()
+                end
+            until Car
+            if donotusecar then Car.Name = "DONOTUSECAR" end
+            if Car and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and BringFrom.Character and BringFrom.Character:FindFirstChild("Torso") and BringFrom.Character:FindFirstChildOfClass("Humanoid") then
+                repeat task.wait() until Car:FindFirstChild("RWD") and Car:FindFirstChild("Body") and Car:FindFirstChild("Body"):FindFirstChild("VehicleSeat")
+                States.IsBringing = true
+                local seattimeout = tick() + 8
+                local LHuman, LRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid"), LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                repeat
+                    task.wait()
+                    LHuman = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+                    LRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    if LHuman and LRoot then
+                        LRoot.CFrame = CFrame.new(Car.Body.VehicleSeat.Position)
+                        Car.Body.VehicleSeat:Sit(LHuman)
+                    end
+                until LHuman.Sit or tick() - seattimeout >= 0
+                seattimeout = nil
+                if not LHuman or not LHuman.Sit then
+                    Notif("Error", "This seat is either bugged or ping lag!")
+                    LAction("unsit", true)
+                    States.IsBringing = false
+                    LocTP(LastPos)
+                    Car.Name = "DONOTUSECAR"
+                    return
+                end
+                if BringFrom.TeamColor == BrickColor.new("Medium stone grey") then
+                    Notif("Error", "Player is in neutrals, bring cancelled.")
+                    LAction("unsit", true)
+                    States.IsBringing = false
+                    LocTP(LastPos)
+                    return
+                end
+                local TargetSeat = nil
+                for i,v in pairs(Car.Body:GetChildren()) do
+                    if v:IsA("Seat") and not v.Occupant then
+                        TargetSeat = v
+                        break
+                    end
+                end
+                if not TargetSeat then
+                    Notif("Error", "The car seats are too full!")
+                    LocTP(LastPos)
+                    return
+                end
+                local VChar = BringFrom.Character
+                local VHuman = VChar and VChar:FindFirstChildOfClass("Humanoid")
+                local VRoot = VChar and VChar:FindFirstChild("HumanoidRootPart")
+                local Timeout = tick() + 17
+                local CarSpin, SpinRad = false, 0
+                task.spawn(function()
+                    Car.PrimaryPart = TargetSeat
+                    Car:SetPrimaryPartCFrame(VRoot.CFrame * CFrame.new(0, -0.3, 0))
+                    task.wait(4)
+                    CarSpin = true
+                end)
+                repeat
+                    task.wait()
+                    local step1 = CPing() / 2 / 2 / 2
+                    if TargetSeat.Occupant and not VHuman.Sit then
+                        for i,v in pairs(Car.Body:GetChildren()) do
+                            if v:IsA("Seat") and not v.Occupant then
+                                TargetSeat = v
+                                break
+                            end
+                        end
+                    end
+                    Car.PrimaryPart = TargetSeat
+                    local Movement = Vector3.new(VRoot.Velocity.X, 0, VRoot.Velocity.Z)
+                    local Predict = (VRoot.CFrame - (Vector3.new(0, 0, -0.1) * step1)) + (Movement * (step1 * 28))
+                    if Predict.Position.Y > 1 then
+                        if CarSpin then
+                            SpinRad += 30
+                            Car:SetPrimaryPartCFrame(Predict * CFrame.Angles(0, math.rad(SpinRad), 0))
+                        else
+                            Car:SetPrimaryPartCFrame(Predict)
+                        end
+                    else
+                        Car:SetPrimaryPartCFrame(LastPos)
+                    end
+                    if BringFrom.TeamColor == BrickColor.new("Medium stone grey") then
+                        break
+                    end
+                until not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or not BringFrom.Character or not LHuman.Sit or VChar ~= BringFrom.Character or VHuman.Sit or VHuman.Health == 0 or tick() - Timeout >= 0
+                Timeout = nil
+                if VHuman and not VHuman.Sit then
+                    Notif("Error", "Failed to bring!")
+                    LAction("unsit", true)
+                    LocTP(LastPos)
+                    States.IsBringing = false
+                    return
+                end
+                if isCFrame then
+                    Car.PrimaryPart = Car:FindFirstChild("RWD")
+                    Car:SetPrimaryPartCFrame(Destination)
+                else
+                    Car.PrimaryPart = Car:FindFirstChild("RWD")
+                    local Destiny = Destination ~= LocalPlayer and Destination.Character:FindFirstChild("HumanoidRootPart").CFrame or LastPos
+                    Car:SetPrimaryPartCFrame(Destiny)
+                    if Destination ~= LocalPlayer and (donotusecar or not Settings.User.AutoDumpCar) then
+                        wait(.2)
+                        LAction("unsit", true)
+                        LocTP(LastPos)
+                    end
+                end
+                SavedArgs.BringSuccess = true
+                if Settings.User.AutoDumpCar and not donotusecar and not dontbreakyet then
+                    local Tinedout = tick() + 15
+                    repeat
+                        task.wait()
+                    until VHuman.Health == 0 or not VHuman.Sit or tick() - Tinedout >= 0 or not Players:FindFirstChild(BringFrom and BringFrom.Name or "nil")
+                    Tinedout = nil
+                    if not LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Sit then
+                        LastPos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
+                        repeat task.wait()
+                            Car.Body.VehicleSeat:Sit(LocalPlayer.Character:FindFirstChildOfClass("Humanoid"))
+                        until LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Sit
+                    end
+                    Car.PrimaryPart = Car:FindFirstChild("RWD")
+                    Car:SetPrimaryPartCFrame(CFrame.new(0, 9, 0))
+                    wait(.2)
+                    LAction("unsit", true)
+                    LocTP(LastPos)
+                end
+                States.IsBringing = false
+            end
+        else
+            if isCFrame then
+                LocTP(Destination)
+            else
+                LocTP(Destination.Character:FindFirstChild("HumanoidRootPart").CFrame)
+            end
+        end
+    end
 	end
-end
 --Arrest/Tase
 local ArrestPL = function(args, savepos, isHidden)
 	SavedPositions.ArrestPlr = LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
