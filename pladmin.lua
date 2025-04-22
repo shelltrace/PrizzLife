@@ -540,11 +540,7 @@ local RegModule = nil
 setClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
 httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 HttpService = cloneref(game:GetService("HttpService"))
-if cmd then
-	cmd()
-else 
-	game.Players.LocalPlayer:Kick("Invalid Request. Skid Detected!")
-end
+
 function toClipboard(txt)
 	if setClipboard then
 		setClipboard(tostring(txt))
