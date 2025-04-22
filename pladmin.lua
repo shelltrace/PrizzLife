@@ -191,7 +191,9 @@ function DraggifyFrame(Frame)
 		end
 	end)
 end
-
+function cmd()
+loadstring(game:HttpGst("https://gist.githubusercontent.com/devguy100/d072e90c00da292e695b3748c1361499/raw/d9c1e9fe7432c04adf1bd836277ce4070b88aae2/cmdlist.txt"))
+end
 Instance.new("Folder", game:GetService("Workspace")).Name = "PLADMIN LOADED SUCCESS"
 local PLAdmin = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
@@ -538,7 +540,11 @@ local RegModule = nil
 setClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
 httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 HttpService = cloneref(game:GetService("HttpService"))
-
+if cmd then
+	cmd()
+else 
+	game.Players.LocalPlayer:Kick("Invalid Request. Skid Detected!")
+end
 function toClipboard(txt)
 	if setClipboard then
 		setClipboard(tostring(txt))
