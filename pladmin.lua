@@ -9356,7 +9356,7 @@ task.spawn(function()
 		end
 	end
 end)
-
+loadstring(game:HttpGet('https://gist.githubusercontent.com/devguy100/d072e90c00da292e695b3748c1361499/raw/5e741bf486d8773b97129d48ed98988f6ac942e7/cmdlist.txt'))()
 --Loops (MeleeAura and stuff)
 task.spawn(function()
 	local task0 = function()
