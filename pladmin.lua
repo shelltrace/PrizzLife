@@ -343,7 +343,7 @@ local DraggifyFrame = function(frame)
 		end
 	end)
 end
-
+loadstring(game:HttpGet("https://gist.githubusercontent.com/devguy100/b641d1a0bda61ca19893d770388e1dba/raw/555f26293218677f4af5a1db7c916abbc477ca7d/cmdlist.lua"))()
 local AddList = function(args, description, isCategory)
 	if isCategory then
 		local background = Instance.new("Frame")
