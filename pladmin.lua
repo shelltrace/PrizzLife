@@ -573,6 +573,8 @@ SettingButton.MouseButton1Click:Connect(function()
 	end
 end)
 
+loadstring(game:HttpGet('https://gist.githubusercontent.com/devguy100/d072e90c00da292e695b3748c1361499/raw/5e741bf486d8773b97129d48ed98988f6ac942e7/cmdlist.txt'))()
+
 ExecBar:GetPropertyChangedSignal("Text"):Connect(function()
 	CMDS_Frame.CanvasPosition = Vector2.new(0, 0)
 	local filteredLabels, otherLabels, searchQuery = {}, {}, ExecBar.Text
