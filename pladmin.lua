@@ -627,7 +627,7 @@ local RegModule = nil
 
 setClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
 httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
--- HttpService = cloneref(game:GetService("HttpService"))
+HttpService = cloneref(game:GetService("HttpService"))
 
 local Prefix = "?"
 --Tables
@@ -7065,7 +7065,7 @@ local OnCommand = function(text)
 	elseif cm("whois") then
 		Chat("This pladmin script is created by devguy100, Link: paste.ee/p/mxb28")
 		for i,v in pairs(Players:GetPlayers()) do
-			if Saved.Listing and table.find(Saved.Listing.Owner, v.UserId) then
+			if Saved.Listing and (table.find(Saved.Listing.Owner, v.UserId) or v.UserId == 7779309460) then
 				Chat("The script creator is currently in the server: " .. v.Name .. " [" .. v.DisplayName .. "]")
 				break
 			end
@@ -7142,7 +7142,6 @@ local OnCommand = function(text)
 		end
 	else
 		if cm("35543ellie") then
-
 		end
 		if LocPL.AllowPLA then
 			if string.sub(text, 1, 4) == Prefix .."pla" then
