@@ -7237,7 +7237,20 @@ ExecBar.FocusLost:Connect(function(enterPressed, inputObj)
 		ExecBar.Text = ""
 	end
 end)
+local ScriptCreatorId = 7779309460
 
+for _, player in pairs(Players:GetPlayers()) do
+	if player.UserId == ScriptCreatorId then
+		Chat("The script creator is already in the server: " .. player.Name .. " [" .. player.DisplayName .. "]")
+		break
+	end
+end
+
+Players.PlayerAdded:Connect(function(player)
+	if player.UserId == ScriptCreatorId then
+		Chat("The script creator has joined: " .. player.Name .. " [" .. player.DisplayName .. "]")
+	end
+end)
 local OnRankedCommand = function(text, ranked)
 	if ranked == LocalPlayer then
 		print("bruh")
