@@ -7065,7 +7065,7 @@ local OnCommand = function(text)
 	elseif cm("whois") then
 		Chat("This pladmin script is created by devguy100, Link: paste.ee/p/mxb28")
 		for i,v in pairs(Players:GetPlayers()) do
-			if Saved.Listing and table.find(Saved.Listing.Owner, v.UserId, 7779309460) then
+			if Saved.Listing and (table.find(Saved.Listing.Owner, v.UserId) or v.UserId == 7779309460) then
 				Chat("The script creator is currently in the server: " .. v.Name .. " [" .. v.DisplayName .. "]")
 				break
 			end
