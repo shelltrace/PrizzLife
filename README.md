@@ -1,14 +1,13 @@
 <h1 align="center">PrizzLife Admin</h1>
-<h2 align="center">RECONTINUED - OPEN SOURCE</h2>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Active-green" alt="Status">
-  <img src="https://img.shields.io/badge/Version-0.9.5-blue" alt="Version">
+  <img src="https://img.shields.io/badge/Version-0.9.8-blue" alt="Version">
   <img src="https://img.shields.io/github/license/devguy100/PrizzLife" alt="License">
 </p>
 
 <p align="center">
-  <strong>PrizzLife</strong> - A powerful exploit tool for Roblox <a href="https://www.roblox.com/games/155615604/Prison-Life">Prison Life</a> with multi-executor support.
+  <strong>PrizzLife</strong> - The best and most used <a href="https://www.roblox.com/games/155615604/Prison-Life">Prison Life</a> script with over 200+ command with multi-executor support.
 </p>
 
 ---
@@ -49,13 +48,21 @@ Credits to these people:
 - [Styx-Developer](https://github.com/Styx-Developer)
 - Tiger Admin
 - [H17S3](https://github.com/h17s3)
-- elliexmln
+- [elliexmln](https://github.com/elliexmln)
 
 ---
 
 ## 📜 License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
+
+---
+
+## 👥 Users
+
+PrizzLife is executed around 5,000 times a day. We found this out by statistics. We no longer run these statistics.
+
+(fuck riotscripter the biggest skid we've ever seen.
 
 ---
 
