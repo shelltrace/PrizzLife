@@ -61,11 +61,3 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 ## 👥 Users
 
 PrizzLife is executed around 5,000 times a day. We found this out by statistics. We no longer run these statistics.
-
-(fuck riotscripter the biggest skid we've ever seen.
-
----
-
-<p align="center">
-  <strong>Happy exploiting! 🚀</strong>
-</p>
